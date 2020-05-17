@@ -8,10 +8,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  String mail = data.mail;
-  String password = data.password;
-  TextEditingController email = new TextEditingController();
-  TextEditingController pass = new TextEditingController();
+  var email = new TextEditingController();
+  var pass = new TextEditingController();
   bool rememBox = false;
 
   @override
@@ -86,13 +84,17 @@ class _LoginState extends State<Login> {
                         RaisedButton(
                           color: Color(0xFF1976D2),
                           onPressed: () {
-                            if (email == mail && pass == password) {
+                            String n = email.text;
+                            String m = pass.text;
+                            print(n);
+                            print(m);
+                            if (n.compareTo(data.mail) == 0 &&
+                                m.compareTo(data.password) == 0) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => Homepage()));
                             }
-                            print(mail);
                           },
                           textColor: Colors.white,
                           padding: EdgeInsets.all(0.0),
